@@ -1,52 +1,114 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Birthday Page 🎉</title>
+  <meta charset="UTF-8">
+  <title>Birthday Wishes 🎉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            background: #111;
-            color: white;
-            font-family: Arial;
-            text-align: center;
-            padding-top: 80px;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-        input,
-        button {
-            padding: 10px;
-            margin: 10px;
-            font-size: 16px;
-        }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
 
-        button {
-            cursor: pointer;
-        }
-    </style>
+    h1 {
+      color: #6a1b9a;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1em;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1em;
+      border: none;
+      border-radius: 25px;
+      background: #6a1b9a;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #4a148c;
+    }
+
+    .result {
+      margin-top: 25px;
+      display: none;
+    }
+
+    .dua {
+      margin-top: 15px;
+      background: #f3f3f3;
+      padding: 15px;
+      border-radius: 15px;
+      direction: rtl;
+      font-size: 1.2em;
+      line-height: 1.8;
+      font-family: "Amiri", serif;
+    }
+  </style>
 </head>
 
 <body>
 
-    <h1>🎉 Happy Birthday 🎉</h1>
+<div class="card">
+  <h1>🎂 Birthday App</h1>
 
-    <input id="name" placeholder="Enter your name"><br>
-    <input id="age" placeholder="Enter your age"><br>
+  <input type="text" id="name" placeholder="Enter name">
+  <input type="number" id="age" placeholder="Enter age">
 
-    <button onclick="celebrate()">Celebrate 🎂</button>
+  <button onclick="showMessage()">Celebrate 🎉</button>
 
-    <h2 id="result"></h2>
+  <div class="result" id="result">
+    <h2 id="message"></h2>
 
-    <script>
-        function celebrate() {
-            let name = document.getElementById("name").value;
-            let age = document.getElementById("age").value;
+    <div class="dua">
+       اللَّهُمَّ بَارِكْ لَك فِي عُمْرِك  
+      وَاجْعَلْ سِنِينَ عُمُرِك فِي طَاعَتكَ  
+      وَارْزُقْك السَّعَادَةَ فِي الدُّنْيَا وَالْآخِرَةِ
+    </div>
+  </div>
+</div>
 
-            document.getElementById("result").innerHTML =
-                "🎈 Dear " + name + "<br>You are now " + age + " years old 🎈";
-        }
-    </script>
+<script>
+  function showMessage() {
+    const name = document.getElementById("name").value;
+    const age = document.getElementById("age").value;
+
+    if (name === "" || age === "") {
+      alert("Please enter name and age 😊");
+      return;
+    }
+
+    document.getElementById("message").innerText =
+      "🎉 Happy " + age + "th Birthday, " + name + "! 🎉";
+
+    document.getElementById("result").style.display = "block";
+  }
+</script>
 
 </body>
-
 </html>
